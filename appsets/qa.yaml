@@ -10,7 +10,7 @@ spec:
         repoUrl: https://github.com/isubuz/argocd-helm-monorepo-appsets.git
         revision: HEAD
         files:
-          - path: "qa/*.yaml"
+          - path: "envs/qa/*.yaml"
   template:
     metadata:
       name: '{{ .path.basename }}-{{ .svcName }}'
