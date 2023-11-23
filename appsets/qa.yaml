@@ -24,7 +24,7 @@ spec:
         path: chart
         helm:
           valueFiles:
-            - "helm-values/{{ .path.basename }}/{{ .svcName }}/values.yaml"
+            - "helm-values/{{ .path.basename }}/{{ .svcName }}.yaml"
       syncPolicy:
         automated:
         syncOptions:

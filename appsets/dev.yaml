@@ -10,7 +10,7 @@ spec:
         repoUrl: https://github.com/isubuz/argocd-helm-monorepo-appsets.git
         revision: HEAD
         files:
-          - path: "envs/dev/*.yaml"
+          - path: "envs/dev/gb-1.yaml"
   template:
     metadata:
       name: '{{ .path.basename }}-{{ .svcName }}'
@@ -24,7 +24,7 @@ spec:
         path: chart
         helm:
           valueFiles:
-            - "helm-values/{{ .path.basename }}/{{ .svcName }}/values.yaml"
+            - "../helm-values/{{ .path.basename }}/{{ .svcName }}.yaml"
       syncPolicy:
         automated:
         syncOptions:
