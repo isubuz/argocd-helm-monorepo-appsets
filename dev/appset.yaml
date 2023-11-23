@@ -24,7 +24,7 @@ spec:
         path: chart
         helm:
           valueFiles:
-            - "../{{ .path.path }}/{{ .path.filename }}"
+            - "helm-values/{{ .path.path }}/{{ .path.filename }}"
       syncPolicy:
         automated:
         syncOptions:
