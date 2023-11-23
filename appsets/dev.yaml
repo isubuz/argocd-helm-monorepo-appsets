@@ -13,7 +13,7 @@ spec:
           - path: "dev/*.yaml"
   template:
     metadata:
-      name: '{{ .path.basename }}-{{ index (splitList "." .path.filenameNormalized) 0 }}'
+      name: '{{ .path.basename }}-{{ .svcName }}'
       labels:
         name: helm-guestbook
     spec:
@@ -24,7 +24,7 @@ spec:
         path: chart
         helm:
           valueFiles:
-            - "helm-values/{{ .path.path }}/{{ .path.filename }}"
+            - "helm-values/{{ .path.basename }}/{{ .svcName }}/values.yaml"
       syncPolicy:
         automated:
         syncOptions:

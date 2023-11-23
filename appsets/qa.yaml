@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1aplha1
 kind: ApplicationSet
 metadata:
-  name: staging
+  name: qa
   namespace: argocd
 spec:
   goTemplate: true
@@ -10,21 +10,21 @@ spec:
         repoUrl: https://github.com/isubuz/argocd-helm-monorepo-appsets.git
         revision: HEAD
         files:
-          - path: "staging/*.yaml"
+          - path: "qa/*.yaml"
   template:
     metadata:
-      name: '{{ .path.basename }}-{{ index (splitList "." .path.filenameNormalized) 0 }}'
+      name: '{{ .path.basename }}-{{ .svcName }}'
       labels:
         name: helm-guestbook
     spec:
-      project: staging
+      project: qa
       source:
         repoURL: https://github.com/isubuz/argocd-helm-monorepo.git
         targetRevision: HEAD
         path: chart
         helm:
           valueFiles:
-            - "../{{ .path.path }}/{{ .path.filename }}"
+            - "helm-values/{{ .path.basename }}/{{ .svcName }}/values.yaml"
       syncPolicy:
         automated:
         syncOptions:
