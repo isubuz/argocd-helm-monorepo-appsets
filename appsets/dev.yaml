@@ -8,7 +8,7 @@ spec:
   generators:
     - git:
         repoUrl: https://github.com/isubuz/argocd-helm-monorepo-appsets.git
-        revision: HEAD
+        revision: c925575244685c300111f69f94e6e2d8aa14769d
         files:
           - path: "envs/dev/gb-1.yaml"
   template:
