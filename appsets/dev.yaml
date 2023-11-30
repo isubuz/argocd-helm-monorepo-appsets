@@ -27,6 +27,7 @@ spec:
             - "../helm-values/{{ .path.basename }}/{{ .svcName }}.yaml"
       syncPolicy:
         automated:
+          prune: true
         syncOptions:
           - CreateNamespace=true
       destination:
