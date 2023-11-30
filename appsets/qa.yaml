@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1aplha1
 kind: ApplicationSet
 metadata:
   name: qa
-  namespace: argocd
+  namespace: argocd-local
 spec:
   goTemplate: true
   generators:
